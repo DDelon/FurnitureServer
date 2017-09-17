@@ -1,0 +1,6 @@
+.vs/FurnitureServer/v15/.suo
+*.pdb
+*.obj
+FurnitureServer/Protoc/CJSON/
+*.log
+*.tlog

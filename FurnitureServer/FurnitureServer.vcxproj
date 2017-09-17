@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{901A22CA-D84E-44E9-BEE7-1B72F9E12D83}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>FurnitureServer</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)/Protoc/Rapidjson;$(ProjectDir)/Protoc;$(ProjectDir)/Base/ThreadManager;$(ProjectDir)/Base/ThreadManager/ThreadPool;$(ProjectDir)/Base/EventManager;$(ProjectDir)/Base;$(ProjectDir)/ServerManager;$(ProjectDir)/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="base\CCValue.cpp" />
+    <ClCompile Include="Base\EventManager\Event.cpp" />
+    <ClCompile Include="Base\EventManager\EventDispatcher.cpp" />
+    <ClCompile Include="Base\EventManager\EventListener.cpp" />
+    <ClCompile Include="Base\ThreadManager\MyThread.cpp" />
+    <ClCompile Include="Base\ThreadManager\Task.cpp" />
+    <ClCompile Include="Base\ThreadManager\ThreadManager.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="MessageManager\MessageManager.cpp" />
+    <ClCompile Include="ServerManager\ClientConnect.cpp" />
+    <ClCompile Include="ServerManager\Connect.cpp" />
+    <ClCompile Include="ServerManager\ListenerConnect.cpp" />
+    <ClCompile Include="ServerManager\ServerManager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="base\CCValue.h" />
+    <ClInclude Include="Base\EventManager\Event.h" />
+    <ClInclude Include="Base\EventManager\EventDispatcher.h" />
+    <ClInclude Include="Base\EventManager\EventListener.h" />
+    <ClInclude Include="Base\ThreadManager\MyThread.h" />
+    <ClInclude Include="Base\ThreadManager\Task.h" />
+    <ClInclude Include="Base\ThreadManager\ThreadManager.h" />
+    <ClInclude Include="MessageConstant.h" />
+    <ClInclude Include="MessageManager\MessageManager.h" />
+    <ClInclude Include="Protoc\Rapidjson\allocators.h" />
+    <ClInclude Include="Protoc\Rapidjson\document.h" />
+    <ClInclude Include="Protoc\Rapidjson\encodedstream.h" />
+    <ClInclude Include="Protoc\Rapidjson\encodings.h" />
+    <ClInclude Include="Protoc\Rapidjson\error\en.h" />
+    <ClInclude Include="Protoc\Rapidjson\error\error.h" />
+    <ClInclude Include="Protoc\Rapidjson\filereadstream.h" />
+    <ClInclude Include="Protoc\Rapidjson\filewritestream.h" />
+    <ClInclude Include="Protoc\Rapidjson\fwd.h" />
+    <ClInclude Include="Protoc\Rapidjson\internal\biginteger.h" />
+    <ClInclude Include="Protoc\Rapidjson\internal\diyfp.h" />
+    <ClInclude Include="Protoc\Rapidjson\internal\dtoa.h" />
+    <ClInclude Include="Protoc\Rapidjson\internal\ieee754.h" />
+    <ClInclude Include="Protoc\Rapidjson\internal\itoa.h" />
+    <ClInclude Include="Protoc\Rapidjson\internal\meta.h" />
+    <ClInclude Include="Protoc\Rapidjson\internal\pow10.h" />
+    <ClInclude Include="Protoc\Rapidjson\internal\regex.h" />
+    <ClInclude Include="Protoc\Rapidjson\internal\stack.h" />
+    <ClInclude Include="Protoc\Rapidjson\internal\strfunc.h" />
+    <ClInclude Include="Protoc\Rapidjson\internal\strtod.h" />
+    <ClInclude Include="Protoc\Rapidjson\internal\swap.h" />
+    <ClInclude Include="Protoc\Rapidjson\istreamwrapper.h" />
+    <ClInclude Include="Protoc\Rapidjson\memorybuffer.h" />
+    <ClInclude Include="Protoc\Rapidjson\memorystream.h" />
+    <ClInclude Include="Protoc\Rapidjson\msinttypes\inttypes.h" />
+    <ClInclude Include="Protoc\Rapidjson\msinttypes\stdint.h" />
+    <ClInclude Include="Protoc\Rapidjson\ostreamwrapper.h" />
+    <ClInclude Include="Protoc\Rapidjson\pointer.h" />
+    <ClInclude Include="Protoc\Rapidjson\prettywriter.h" />
+    <ClInclude Include="Protoc\Rapidjson\rapidjson.h" />
+    <ClInclude Include="Protoc\Rapidjson\reader.h" />
+    <ClInclude Include="Protoc\Rapidjson\schema.h" />
+    <ClInclude Include="Protoc\Rapidjson\stream.h" />
+    <ClInclude Include="Protoc\Rapidjson\stringbuffer.h" />
+    <ClInclude Include="Protoc\Rapidjson\writer.h" />
+    <ClInclude Include="ServerManager\ClientConnect.h" />
+    <ClInclude Include="ServerManager\Connect.h" />
+    <ClInclude Include="ServerManager\ListenerConnect.h" />
+    <ClInclude Include="ServerManager\ServerManager.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

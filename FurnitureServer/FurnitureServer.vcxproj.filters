@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{d0c6ed84-40c9-4687-be25-1805f089b85a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Base">
+      <UniqueIdentifier>{e3629b8c-aa39-4c35-b971-eda9f4fbbd6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Base\EventManager">
+      <UniqueIdentifier>{8b2e9634-c855-4f73-8d5d-a8eef745e1e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ServerManager">
+      <UniqueIdentifier>{b1bdff8b-82f2-49f2-8ac1-c09772d17544}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Base\ThreadManager">
+      <UniqueIdentifier>{88b37dbd-0b34-4dd0-a24e-2282ef03e592}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\MessageManager">
+      <UniqueIdentifier>{69997278-e7d9-4297-a03f-5bd8b53f23e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Protoc">
+      <UniqueIdentifier>{ae678f16-1400-4be9-83f0-c58821b31c53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Protoc\Rapidjson">
+      <UniqueIdentifier>{544fd421-bd33-4b81-bf8d-638b327097dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Protoc\Rapidjson\error">
+      <UniqueIdentifier>{b1ad2ffe-1874-4759-8df9-04cadf1f42ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Protoc\Rapidjson\internal">
+      <UniqueIdentifier>{34c22abb-0114-4f6c-a9e9-ea9901316673}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Protoc\Rapidjson\msinttypes">
+      <UniqueIdentifier>{f56429ff-d47c-49a5-ae22-08db0fb65e4d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="base\CCValue.cpp">
+      <Filter>src\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Base\EventManager\Event.cpp">
+      <Filter>src\Base\EventManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Base\EventManager\EventDispatcher.cpp">
+      <Filter>src\Base\EventManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Base\EventManager\EventListener.cpp">
+      <Filter>src\Base\EventManager</Filter>
+    </ClCompile>
+    <ClCompile Include="ServerManager\ServerManager.cpp">
+      <Filter>src\ServerManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Base\ThreadManager\ThreadManager.cpp">
+      <Filter>src\Base\ThreadManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Base\ThreadManager\MyThread.cpp">
+      <Filter>src\Base\ThreadManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Base\ThreadManager\Task.cpp">
+      <Filter>src\Base\ThreadManager</Filter>
+    </ClCompile>
+    <ClCompile Include="ServerManager\ClientConnect.cpp">
+      <Filter>src\ServerManager</Filter>
+    </ClCompile>
+    <ClCompile Include="ServerManager\Connect.cpp">
+      <Filter>src\ServerManager</Filter>
+    </ClCompile>
+    <ClCompile Include="ServerManager\ListenerConnect.cpp">
+      <Filter>src\ServerManager</Filter>
+    </ClCompile>
+    <ClCompile Include="MessageManager\MessageManager.cpp">
+      <Filter>src\MessageManager</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="base\CCValue.h">
+      <Filter>src\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Base\EventManager\Event.h">
+      <Filter>src\Base\EventManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Base\EventManager\EventDispatcher.h">
+      <Filter>src\Base\EventManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Base\EventManager\EventListener.h">
+      <Filter>src\Base\EventManager</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerManager\ServerManager.h">
+      <Filter>src\ServerManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Base\ThreadManager\ThreadManager.h">
+      <Filter>src\Base\ThreadManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Base\ThreadManager\MyThread.h">
+      <Filter>src\Base\ThreadManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Base\ThreadManager\Task.h">
+      <Filter>src\Base\ThreadManager</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerManager\ClientConnect.h">
+      <Filter>src\ServerManager</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerManager\Connect.h">
+      <Filter>src\ServerManager</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerManager\ListenerConnect.h">
+      <Filter>src\ServerManager</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageManager\MessageManager.h">
+      <Filter>src\MessageManager</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageConstant.h">
+      <Filter>src\MessageManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Protoc\Rapidjson\allocators.h">
+      <Filter>src\Protoc\Rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="Protoc\Rapidjson\document.h">
+      <Filter>src\Protoc\Rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="Protoc\Rapidjson\encodedstream.h">
+      <Filter>src\Protoc\Rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="Protoc\Rapidjson\encodings.h">
+      <Filter>src\Protoc\Rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="Protoc\Rapidjson\filereadstream.h">
+      <Filter>src\Protoc\Rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="Protoc\Rapidjson\filewritestream.h">
+      <Filter>src\Protoc\Rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="Protoc\Rapidjson\fwd.h">
+      <Filter>src\Protoc\Rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="Protoc\Rapidjson\istreamwrapper.h">
+      <Filter>src\Protoc\Rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="Protoc\Rapidjson\memorybuffer.h">
+      <Filter>src\Protoc\Rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="Protoc\Rapidjson\memorystream.h">
+      <Filter>src\Protoc\Rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="Protoc\Rapidjson\ostreamwrapper.h">
+      <Filter>src\Protoc\Rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="Protoc\Rapidjson\pointer.h">
+      <Filter>src\Protoc\Rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="Protoc\Rapidjson\prettywriter.h">
+      <Filter>src\Protoc\Rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="Protoc\Rapidjson\rapidjson.h">
+      <Filter>src\Protoc\Rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="Protoc\Rapidjson\reader.h">
+      <Filter>src\Protoc\Rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="Protoc\Rapidjson\schema.h">
+      <Filter>src\Protoc\Rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="Protoc\Rapidjson\stream.h">
+      <Filter>src\Protoc\Rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="Protoc\Rapidjson\stringbuffer.h">
+      <Filter>src\Protoc\Rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="Protoc\Rapidjson\writer.h">
+      <Filter>src\Protoc\Rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="Protoc\Rapidjson\error\en.h">
+      <Filter>src\Protoc\Rapidjson\error</Filter>
+    </ClInclude>
+    <ClInclude Include="Protoc\Rapidjson\error\error.h">
+      <Filter>src\Protoc\Rapidjson\error</Filter>
+    </ClInclude>
+    <ClInclude Include="Protoc\Rapidjson\internal\biginteger.h">
+      <Filter>src\Protoc\Rapidjson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="Protoc\Rapidjson\internal\diyfp.h">
+      <Filter>src\Protoc\Rapidjson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="Protoc\Rapidjson\internal\dtoa.h">
+      <Filter>src\Protoc\Rapidjson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="Protoc\Rapidjson\internal\ieee754.h">
+      <Filter>src\Protoc\Rapidjson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="Protoc\Rapidjson\internal\itoa.h">
+      <Filter>src\Protoc\Rapidjson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="Protoc\Rapidjson\internal\meta.h">
+      <Filter>src\Protoc\Rapidjson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="Protoc\Rapidjson\internal\pow10.h">
+      <Filter>src\Protoc\Rapidjson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="Protoc\Rapidjson\internal\regex.h">
+      <Filter>src\Protoc\Rapidjson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="Protoc\Rapidjson\internal\stack.h">
+      <Filter>src\Protoc\Rapidjson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="Protoc\Rapidjson\internal\strfunc.h">
+      <Filter>src\Protoc\Rapidjson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="Protoc\Rapidjson\internal\strtod.h">
+      <Filter>src\Protoc\Rapidjson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="Protoc\Rapidjson\internal\swap.h">
+      <Filter>src\Protoc\Rapidjson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="Protoc\Rapidjson\msinttypes\inttypes.h">
+      <Filter>src\Protoc\Rapidjson\msinttypes</Filter>
+    </ClInclude>
+    <ClInclude Include="Protoc\Rapidjson\msinttypes\stdint.h">
+      <Filter>src\Protoc\Rapidjson\msinttypes</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
