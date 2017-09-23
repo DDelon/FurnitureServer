@@ -8,7 +8,7 @@
 ServerManager::ServerManager() :
 _pListener(nullptr)
 {
-	std::cout << "1" << std::endl;
+	
 }
 
 ServerManager::~ServerManager()
@@ -38,6 +38,10 @@ void ServerManager::start()
 		this->sendMessageLoop(pThread);
 	});
 
+	ThreadManager::getInstance()->addTask([&](MyThread *pThread) {
+		this->removeSocketLoop(pThread);
+	});
+
 	this->mainLoop();
 	
 }
@@ -59,8 +63,8 @@ void ServerManager::clear(int socketId)
 	auto iter = _connectSet.find(socketId);
 	if (iter != _connectSet.end())
 	{
+		delete (*iter).second;
 		_connectSet.erase(iter);
-		delete iter->second;
 	}
 }
 
@@ -112,7 +116,7 @@ void ServerManager::createListenerSocket()
 timeval ServerManager::createTimeout()
 {
 	timeval timeout;
-	timeout.tv_sec = 500;
+	timeout.tv_sec = 1;
 	timeout.tv_usec = 0;
 	return timeout;
 }
@@ -124,7 +128,6 @@ void ServerManager::mainLoop()
 	{
 		fd_set fdBackup = _fdSockets;
 		int ret = select(0, &fdBackup, NULL, NULL, &this->createTimeout());
-		std::cout << "main loop" << std::endl;
 		if (ret > 0)
 		{
 			for (int i = 0; i < _fdSockets.fd_count; ++i)
@@ -138,16 +141,21 @@ void ServerManager::mainLoop()
 					}
 					else
 					{
-						std::cout << "read event" << std::endl;
-						_connectSet[_fdSockets.fd_array[i]]->setReadable(true);
+						
+						std::cout << "read event:" << _fdSockets.fd_array[i] << std::endl;
+						auto iter = _connectSet.find(_fdSockets.fd_array[i]);
+						if (iter != _connectSet.end())
+						{
+							_connectSet[_fdSockets.fd_array[i]]->setReadable(true);
+						}
 					}
 				}
 			}
 		}
 		else
 		{
-			std::cout << "select ret 0" << std::endl;
-			return;
+			//std::cout << "select over time" << std::endl;
+			
 		}
 	}
 
@@ -162,8 +170,9 @@ void ServerManager::recvMessageLoop(MyThread *pThread)
 
 		for (auto iter : _connectSet)
 		{
-			if (iter.second->isReadable())
+			if (!iter.second->isRemove() && iter.second->isReadable())
 			{
+				std::cout << "readable:" << iter.first << std::endl;
 				iter.second->recvMessage();
 			}
 		}
@@ -179,9 +188,27 @@ void ServerManager::sendMessageLoop(MyThread *pThread)
 	{
 		for (auto iter : _connectSet)
 		{
-			if (iter.second->isSendable())
+			if (!iter.second->isRemove() && iter.second->isSendable())
 			{
+				std::cout << "sendable:" << iter.first << std::endl;
 				iter.second->sendMessage();
+			}
+		}
+
+		pThread->unlock();
+	}
+}
+
+void ServerManager::removeSocketLoop(MyThread *pThread)
+{
+	if (pThread->lock())
+	{
+		for (auto iter : _connectSet)
+		{
+			if (iter.second->isRemove())
+			{
+				this->clear(iter.first);
+				break;
 			}
 		}
 

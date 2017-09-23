@@ -4,3 +4,6 @@
 FurnitureServer/Protoc/CJSON/
 *.log
 *.tlog
+*.ipch
+*.ilk
+*.idb

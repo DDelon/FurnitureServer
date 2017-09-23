@@ -20,7 +20,7 @@ bool ListenerConnect::joinNewClient(int setNum)
 		sockaddr_in addrRemote = { 0 };
 		int addrLen = sizeof(addrRemote);
 		int socketNew = accept(this->_socketId, (sockaddr *)&addrRemote, &addrLen);
-		std::cout << "new client join id:" << socketNew << std::endl;
+		std::cout << "new client join id:" << socketNew << " ip:" << inet_ntoa(addrRemote.sin_addr) << " port:" << ntohs(addrRemote.sin_port) << std::endl;
 		ServerManager::getInstance()->joinClient(socketNew);
 		return true;
 	}

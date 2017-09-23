@@ -75,7 +75,6 @@ void MessageManager::dispatcherRecv(std::pair<int, std::string> message)
 	if (iter != _messageReflact.end())
 	{
 		std::string listenerName = this->getReflactValue(message.first);
-
 		EventDispatcher::getInstance()->dispatcher(listenerName, Value(message.second));
 	}
 }

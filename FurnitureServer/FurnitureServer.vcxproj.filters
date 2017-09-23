@@ -38,6 +38,9 @@
     <Filter Include="src\Protoc\Rapidjson\msinttypes">
       <UniqueIdentifier>{f56429ff-d47c-49a5-ae22-08db0fb65e4d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\DatebaseManager">
+      <UniqueIdentifier>{4673fb4d-95d9-4105-a4ca-5c347b54a4bd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -81,6 +84,12 @@
     </ClCompile>
     <ClCompile Include="MessageManager\MessageManager.cpp">
       <Filter>src\MessageManager</Filter>
+    </ClCompile>
+    <ClCompile Include="DatebaseManager\DatebaseManager.cpp">
+      <Filter>src\DatebaseManager</Filter>
+    </ClCompile>
+    <ClCompile Include="DatebaseManager\DatebaseConnect.cpp">
+      <Filter>src\DatebaseManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -227,6 +236,12 @@
     </ClInclude>
     <ClInclude Include="Protoc\Rapidjson\msinttypes\stdint.h">
       <Filter>src\Protoc\Rapidjson\msinttypes</Filter>
+    </ClInclude>
+    <ClInclude Include="DatebaseManager\DatebaseManager.h">
+      <Filter>src\DatebaseManager</Filter>
+    </ClInclude>
+    <ClInclude Include="DatebaseManager\DatebaseConnect.h">
+      <Filter>src\DatebaseManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

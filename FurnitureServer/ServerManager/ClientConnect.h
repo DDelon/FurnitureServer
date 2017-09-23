@@ -2,6 +2,10 @@
 #define __CLIENT_CONNECT_H__
 #include "Connect.h"
 
+#define RECV_SIZE 5000
+#define SEND_SIZE 5000
+#define BUFF_SIZE 1024
+
 class ClientConnect : public Connect
 {
 public:
@@ -23,18 +27,22 @@ public:
 
 	bool isSendable() { return _isSendable; }
 
+	bool isRemove() { return _isRemove; }
+
 protected:
-	void initData();
+	void initRecvData();
 
-	void addLength(std::string &content, unsigned int length);
+	void initSendData();
 
-	int getLength(std::string &content);
+	void makePackage(std::string message);
 
-	void encode(std::string &str, std::string key);
+	std::string encodeLength(unsigned int length);
 
-	void decode(std::string &str, std::string key);
+	unsigned int decodeLength(char *lengthStr);
 
-	void addSign(std::string &content);
+	void encode(char *str, int size, std::string key);
+	
+	void decode(char *str, int size, std::string key);
 
 	char getSign(std::string &content);
 
@@ -52,6 +60,13 @@ private:
 
 	bool _isReadable;
 	bool _isSendable;
+	bool _isRemove;
+
+	int _sendTotalLength;
+	int _curSendLength;
+
+	char _szRecvBuffer[RECV_SIZE];
+	char _szSendBuffer[RECV_SIZE];
 };
 
 #endif
