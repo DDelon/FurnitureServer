@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -105,7 +105,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Program Files\MySQL\MySQL Server 5.5\include;C:\Program Files\MySQL\MySQL Server 5.7\include;$(ProjectDir)/DatebaseManager;$(ProjectDir)/MessageManager;$(ProjectDir)/Protoc/Rapidjson;$(ProjectDir)/Protoc;$(ProjectDir)/Base/ThreadManager;$(ProjectDir)/Base/ThreadManager/ThreadPool;$(ProjectDir)/Base/EventManager;$(ProjectDir)/Base;$(ProjectDir)/ServerManager;$(ProjectDir)/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files\MySQL\MySQL Server 5.5\include;C:\Program Files\MySQL\MySQL Server 5.7\include;$(ProjectDir)/DatebaseManager;$(ProjectDir)/MessageManager;$(ProjectDir)/FileManager/TinyXML;$(ProjectDir)/Protoc/Rapidjson;$(ProjectDir)/Protoc;$(ProjectDir)/Base/ThreadManager;$(ProjectDir)/Base/ThreadManager/ThreadPool;$(ProjectDir)/Base/EventManager;$(ProjectDir)/Base;$(ProjectDir)/ServerManager;$(ProjectDir)/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -164,7 +164,11 @@
     <ClCompile Include="Base\ThreadManager\ThreadManager.cpp" />
     <ClCompile Include="DatebaseManager\DatabaseConnect.cpp" />
     <ClCompile Include="DatebaseManager\DatabaseManager.cpp" />
-    <ClCompile Include="FileManager\FileManager.cpp" />
+    <ClCompile Include="FileManager\FileUtils.cpp" />
+    <ClCompile Include="FileManager\TinyXML\tinystr.cpp" />
+    <ClCompile Include="FileManager\TinyXML\tinyxml.cpp" />
+    <ClCompile Include="FileManager\TinyXML\tinyxmlerror.cpp" />
+    <ClCompile Include="FileManager\TinyXML\tinyxmlparser.cpp" />
     <ClCompile Include="GameManager\GameHall.cpp" />
     <ClCompile Include="GameManager\GameManager.cpp" />
     <ClCompile Include="GameManager\GameRoom.cpp" />
@@ -186,7 +190,9 @@
     <ClInclude Include="Base\ThreadManager\ThreadManager.h" />
     <ClInclude Include="DatebaseManager\DatabaseConnect.h" />
     <ClInclude Include="DatebaseManager\DatabaseManager.h" />
-    <ClInclude Include="FileManager\FileManager.h" />
+    <ClInclude Include="FileManager\FileUtils.h" />
+    <ClInclude Include="FileManager\TinyXML\tinystr.h" />
+    <ClInclude Include="FileManager\TinyXML\tinyxml.h" />
     <ClInclude Include="GameManager\GameHall.h" />
     <ClInclude Include="GameManager\GameManager.h" />
     <ClInclude Include="GameManager\GameRoom.h" />

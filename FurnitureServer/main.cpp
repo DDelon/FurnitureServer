@@ -7,12 +7,12 @@
 #include "ThreadManager.h"
 #pragma comment(lib,"ws2_32.lib")
 #include "ServerManager.h"
-#include <mysql.h>
+//#include <mysql.h>
 #include "rapidjson/document.h"
 #include "rapidjson/prettywriter.h"
 #include "rapidjson/stringbuffer.h"
 #include "DatebaseManager/DatabaseManager.h"
-#include "FileManager/FileManager.h"
+#include "FileManager/FileUtils.h"
 
 using namespace rapidjson;
 
@@ -84,7 +84,7 @@ int main()
 	decode(sContent, "1sfesgdgd");*/
 
 	//ServerManager::getInstance()->start();
-	::Value val = FileManager::getInstance()->getConfigFromTxt("config.txt", "logindb");
+	::Value val = FileUtils::getInstance()->getValueMapFromXML("1.xml");
 
 	/*Document doc;
 	Document::AllocatorType &alloc = doc.GetAllocator();
