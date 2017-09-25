@@ -1,18 +1,18 @@
-#include "DatebaseConnect.h"
-DatebaseConnect::DatebaseConnect()
+#include "DatabaseConnect.h"
+DatabaseConnect::DatabaseConnect()
 {
 	_id = _count++;
 	mysql_init(&_mysql);
 }
 
-DatebaseConnect::~DatebaseConnect()
+DatabaseConnect::~DatabaseConnect()
 {
 	this->close();
 }
 
 
-int DatebaseConnect::_count = 0;
-bool DatebaseConnect::connect(const char *pUser, const char *pPassword, const char *pHost, const char *pDatebase, unsigned int port)
+int DatabaseConnect::_count = 0;
+bool DatabaseConnect::connect(const char *pUser, const char *pPassword, const char *pHost, const char *pDatebase, unsigned int port)
 {
 	if (mysql_real_connect(&_mysql, pHost, pUser, pPassword, pDatebase, port, NULL, 0))
 	{
@@ -26,13 +26,13 @@ bool DatebaseConnect::connect(const char *pUser, const char *pPassword, const ch
 	}
 }
 
-bool DatebaseConnect::query(char *pQuerySQL)
+bool DatabaseConnect::query(char *pQuerySQL)
 {
 	int res = mysql_query(&_mysql, pQuerySQL);
 	return !res;
 }
 
-::Value DatebaseConnect::getQueryResult()
+::Value DatabaseConnect::getQueryResult()
 {
 	_queryResult = mysql_store_result(&_mysql);
 	if (_queryResult)
@@ -69,7 +69,7 @@ bool DatebaseConnect::query(char *pQuerySQL)
 	}
 }
 
-void DatebaseConnect::close()
+void DatabaseConnect::close()
 {
 	mysql_close(&_mysql);
 }

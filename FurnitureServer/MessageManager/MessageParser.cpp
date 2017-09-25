@@ -1,51 +1,51 @@
-#include "MessageManager.h"
+#include "MessageParser.h"
 #include "ThreadManager.h"
 #include "ServerManager.h"
 #include "EventDispatcher.h"
-MessageManager::MessageManager()
+MessageParser::MessageParser()
 {
 	ThreadManager::getInstance()->addTask([&](MyThread *pThread) {
 		this->loop(pThread);
 	});
 }
 
-MessageManager::~MessageManager()
+MessageParser::~MessageParser()
 {
 
 }
 
-MessageManager *MessageManager::_pInstance = nullptr;
-MessageManager *MessageManager::getInstance()
+MessageParser *MessageParser::_pInstance = nullptr;
+MessageParser *MessageParser::getInstance()
 {
 	if (_pInstance == nullptr)
 	{
-		_pInstance = new MessageManager();
+		_pInstance = new MessageParser();
 	}
 
 	return _pInstance;
 }
 
-void MessageManager::addReflact(int id, std::string listenerName)
+void MessageParser::addReflact(int id, std::string listenerName)
 {
 	_messageReflact.insert(std::make_pair(id, listenerName));
 }
 
-void MessageManager::pushRecvMessage(int socketId, std::string message)
+void MessageParser::pushRecvMessage(int socketId, std::string message)
 {
 	_recvMessageVec.push_back(std::make_pair(socketId, message));
 }
 
-void MessageManager::pushSendMessage(int socketId, std::string message)
+void MessageParser::pushSendMessage(int socketId, std::string message)
 {
 	_sendMessageVec.push_back(std::make_pair(socketId, message));
 }
 
-std::string MessageManager::getReflactValue(int id)
+std::string MessageParser::getReflactValue(int id)
 {
 	return _messageReflact[id];
 }
 
-void MessageManager::loop(MyThread *pThread)
+void MessageParser::loop(MyThread *pThread)
 {
 	if (pThread->lock())
 	{
@@ -69,7 +69,7 @@ void MessageManager::loop(MyThread *pThread)
 	}
 }
 
-void MessageManager::dispatcherRecv(std::pair<int, std::string> message)
+void MessageParser::dispatcherRecv(std::pair<int, std::string> message)
 {
 	auto iter = _messageReflact.find(message.first);
 	if (iter != _messageReflact.end())
@@ -79,7 +79,7 @@ void MessageManager::dispatcherRecv(std::pair<int, std::string> message)
 	}
 }
 
-void MessageManager::dispatcherSend(std::pair<int, std::string> message)
+void MessageParser::dispatcherSend(std::pair<int, std::string> message)
 {
 	ServerManager::getInstance()->pushSendMessage(message.first, message.second);
 }

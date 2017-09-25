@@ -11,7 +11,8 @@
 #include "rapidjson/document.h"
 #include "rapidjson/prettywriter.h"
 #include "rapidjson/stringbuffer.h"
-#include "DatebaseManager.h"
+#include "DatebaseManager/DatabaseManager.h"
+#include "FileManager/FileManager.h"
 
 using namespace rapidjson;
 
@@ -82,7 +83,8 @@ int main()
 	unsigned int len = getLength(sContent);
 	decode(sContent, "1sfesgdgd");*/
 
-	ServerManager::getInstance()->start();
+	//ServerManager::getInstance()->start();
+	::Value val = FileManager::getInstance()->getConfigFromTxt("config.txt", "logindb");
 
 	/*Document doc;
 	Document::AllocatorType &alloc = doc.GetAllocator();
@@ -110,8 +112,8 @@ int main()
 	const char database[] = "test";
 	unsigned int port = 3306;
 
-	DatebaseManager::getInstance()->createConnect(user, password, host, database, port);
-	::Value result = DatebaseManager::getInstance()->query(database, "select * from user;");
+	DatabaseManager::getInstance()->createConnect(user, password, host, database, port);
+	::Value result = DatabaseManager::getInstance()->query(database, "select * from user;");
 	std::cout << "query end" << std::endl;
 	if (result.isNull())
 		return 0;

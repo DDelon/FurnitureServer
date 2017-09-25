@@ -1,20 +1,20 @@
-#ifndef __MESSAGE_MANAGER_H__
-#define __MESSAGE_MANAGER_H__
-
+#ifndef __MESSAGE_PARSER_H__
+#define __MESSAGE_PARSER_H__
+#include "MessageConstant.h"
 #include <iostream>
 #include <vector>
 #include <map>
 
 class MyThread;
 
-class MessageManager
+class MessageParser
 {
 private:
-	MessageManager();
-	~MessageManager();
+	MessageParser();
+	~MessageParser();
 
 public:
-	static MessageManager *getInstance();
+	static MessageParser *getInstance();
 
 	void addReflact(int id, std::string listenerName);
 
@@ -32,7 +32,7 @@ private:
 	void dispatcherSend(std::pair<int, std::string> message);
 
 private:
-	static MessageManager *_pInstance;
+	static MessageParser *_pInstance;
 
 	std::map<int, std::string> _messageReflact;
 

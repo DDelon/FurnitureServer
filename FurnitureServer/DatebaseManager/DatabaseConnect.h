@@ -1,14 +1,14 @@
-#ifndef __DATEBASE_CONNECT_H__
-#define __DATEBASE_CONNECT_H__
+#ifndef __DATABASE_CONNECT_H__
+#define __DATABASE_CONNECT_H__
 #include <iostream>
 #include <mysql.h>
 #include "CCValue.h"
 
-class DatebaseConnect
+class DatabaseConnect
 {
 public:
-	DatebaseConnect();
-	~DatebaseConnect();
+	DatabaseConnect();
+	~DatabaseConnect();
 
 public:
 	bool connect(const char *pUser, const char *pPassword, const char *pHost, const char *pDatebase, unsigned int port);

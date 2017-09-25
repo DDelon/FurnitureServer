@@ -2,7 +2,7 @@
 #include "ClientConnect.h"
 #include "ListenerConnect.h"
 #include "ThreadManager.h"
-#define PORT 55221
+#define PORT 10002
 
 
 ServerManager::ServerManager() :
@@ -116,7 +116,7 @@ void ServerManager::createListenerSocket()
 timeval ServerManager::createTimeout()
 {
 	timeval timeout;
-	timeout.tv_sec = 1;
+	timeout.tv_sec = 2;
 	timeout.tv_usec = 0;
 	return timeout;
 }
@@ -141,8 +141,7 @@ void ServerManager::mainLoop()
 					}
 					else
 					{
-						
-						std::cout << "read event:" << _fdSockets.fd_array[i] << std::endl;
+						//std::cout << "read event:" << _fdSockets.fd_array[i] << std::endl;
 						auto iter = _connectSet.find(_fdSockets.fd_array[i]);
 						if (iter != _connectSet.end())
 						{

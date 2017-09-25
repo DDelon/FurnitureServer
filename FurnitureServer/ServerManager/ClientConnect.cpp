@@ -1,6 +1,6 @@
 #include "ClientConnect.h"
 #include "ServerManager.h"
-#include "MessageManager.h"
+#include "MessageParser.h"
 #include <string>
 
 
@@ -71,20 +71,21 @@ void ClientConnect::makePackage(std::string message)
 		_szSendBuffer[i] = lengthStr[i];
 	}
 	_szSendBuffer[4] = sign;
-	strcpy(&_szSendBuffer[5], message.c_str());
-	this->encode(_szSendBuffer, message.size()+5, key);
+	strcpy(&_szSendBuffer[PACKAGE_HEAD_LEN], message.c_str());
+	this->encode(_szSendBuffer, message.size()+ PACKAGE_HEAD_LEN, key);
 }
 
 void ClientConnect::sendMessage()
 {
-	if (_curSendLength >= _sendTotalLength+5)
+	
+	int size = send(this->_socketId, &_szSendBuffer[_curSendLength], _sendTotalLength+ PACKAGE_HEAD_LEN, 0);
+	_curSendLength += size;
+
+	if (_curSendLength >= _sendTotalLength + PACKAGE_HEAD_LEN)
 	{
 		this->initSendData();
 		return;
 	}
-
-	int size = send(this->_socketId, &_szSendBuffer[_curSendLength], _sendTotalLength+5, 0);
-	_curSendLength += size;
 	
 }
 
@@ -101,39 +102,23 @@ void ClientConnect::recvMessage()
 			_recvTotalLength = this->decodeLength(buffer);
 			_recvSign = buffer[4];
 			_isRecvHead = false;
-			//std::cout << "sign:" << _recvSign << std::endl;
-			if (_recvTotalLength <= (_curRecvLength-5))
-			{
-				//recv complete
-				this->decode(_szRecvBuffer, _curRecvLength, key);
-				_recvContent.assign(&_szRecvBuffer[5]);
-				if (this->verifySign(_recvSign, _recvContent))
-				{
-					//send complete data
-					std::cout << "size:" << _recvTotalLength << " message:" << _recvContent << std::endl;
-					MessageManager::getInstance()->pushSendMessage(this->_socketId, _recvContent);
-				}
 
-				this->initRecvData();
-			}
+			std::cout << "id:" << _socketId << " package length:" << _recvTotalLength << " sign:" << (int)_recvSign << std::endl;
 		}
-		else
-		{
-			if (_recvTotalLength <= (_curRecvLength - 5))
-			{
-				//recv complete
-				this->decode(_szRecvBuffer, _curRecvLength, key);
-				_recvContent.assign(&_szRecvBuffer[5]);
-				if (this->verifySign(_recvSign, _recvContent))
-				{
 
-					//send complete data
-					std::cout << "size:" << _recvTotalLength << " message:" << _recvContent << std::endl;
-					MessageManager::getInstance()->pushSendMessage(this->_socketId, _recvContent);
-				}
-				
-				this->initRecvData();
+		if (_recvTotalLength == (_curRecvLength - PACKAGE_HEAD_LEN))
+		{
+			//recv complete
+			this->decode(_szRecvBuffer, _curRecvLength, key);
+			_recvContent.assign(&_szRecvBuffer[PACKAGE_HEAD_LEN]);
+			if (this->verifySign(_recvSign, _recvContent))
+			{
+				//send complete data
+				std::cout << "size:" << _recvTotalLength << " message:" << _recvContent << std::endl;
+				MessageParser::getInstance()->pushSendMessage(this->_socketId, _recvContent);
 			}
+
+			this->initRecvData();
 		}
 	}
 	else
@@ -175,7 +160,7 @@ unsigned int ClientConnect::decodeLength(char *lengthStr)
 
 void ClientConnect::encode(char *str, int size, std::string key)
 {
-	int beginIndex = 5;
+	int beginIndex = PACKAGE_HEAD_LEN;
 	for (int i = beginIndex; i < size; ++i)
 	{
 		str[i] ^= key[(i - beginIndex)%key.size()];
@@ -184,7 +169,7 @@ void ClientConnect::encode(char *str, int size, std::string key)
 
 void ClientConnect::decode(char *str, int size, std::string key)
 {
-	int beginIndex = 5;
+	int beginIndex = PACKAGE_HEAD_LEN;
 	for (int i = beginIndex; i < size; ++i)
 	{
 		str[i] ^= key[(i - beginIndex)%key.size()];

@@ -5,6 +5,7 @@
 #define RECV_SIZE 5000
 #define SEND_SIZE 5000
 #define BUFF_SIZE 1024
+#define PACKAGE_HEAD_LEN 5
 
 class ClientConnect : public Connect
 {
