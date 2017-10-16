@@ -24,7 +24,7 @@
 #ifndef __THREAD_MANAGER_H__
 #define __THREAD_MANAGER_H__
 
-#define THEAD_INIT_NUM 2
+#define THEAD_INIT_NUM 5
 
 #include <functional>
 #include <vector>

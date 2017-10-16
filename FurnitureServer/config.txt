@@ -1,0 +1,10 @@
+{
+    "ListenerPort": 10002,
+    "logindb": {
+        "user": "root",
+        "psd": "wxs11qzadsl",
+        "host": "127.0.0.1",
+        "database": "logindb",
+        "port": 3306
+    }
+}

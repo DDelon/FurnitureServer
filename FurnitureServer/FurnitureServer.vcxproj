@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -87,26 +87,31 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir)/Protoc/Rapidjson;$(ProjectDir)/Protoc;$(ProjectDir)/Base/ThreadManager;$(ProjectDir)/Base/ThreadManager/ThreadPool;$(ProjectDir)/Base/EventManager;$(ProjectDir)/Base;$(ProjectDir)/ServerManager;$(ProjectDir)/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files\MySQL\MySQL Server 5.7\include;$(ProjectDir)/MessageManager;$(ProjectDir)/Protoc/Rapidjson;$(ProjectDir)/Protoc;$(ProjectDir)/Base/ThreadManager;$(ProjectDir)/Base/ThreadManager/ThreadPool;$(ProjectDir)/Base/EventManager;$(ProjectDir)/Base;$(ProjectDir)/ServerManager;$(ProjectDir)/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Program Files\MySQL\MySQL Server 5.7\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libmysql.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\Program Files\MySQL\MySQL Server 5.5\include;C:\Program Files\MySQL\MySQL Server 5.7\include;$(ProjectDir)/DatebaseManager;$(ProjectDir)/MessageManager;$(ProjectDir)/FileManager/TinyXML;$(ProjectDir)/Protoc/Rapidjson;$(ProjectDir)/Protoc;$(ProjectDir)/Base/ThreadManager;$(ProjectDir)/Base/ThreadManager/ThreadPool;$(ProjectDir)/Base/EventManager;$(ProjectDir)/Base;$(ProjectDir)/ServerManager;$(ProjectDir)/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Program Files\MySQL\MySQL Server 5.7\lib;C:\Program Files\MySQL\MySQL Server 5.5\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libmysql.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -128,19 +133,22 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\Program Files\MySQL\MySQL Server 5.5\include;C:\Program Files\MySQL\MySQL Server 5.7\include;$(ProjectDir)/DatabaseManager;$(ProjectDir)/MessageManager;$(ProjectDir)/Protoc/Rapidjson;$(ProjectDir)/Protoc;$(ProjectDir)/Base/ThreadManager;$(ProjectDir)/Base/ThreadManager/ThreadPool;$(ProjectDir)/Base/EventManager;$(ProjectDir)/Base;$(ProjectDir)/ServerManager;$(ProjectDir)/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Program Files\MySQL\MySQL Server 5.7\lib;C:\Program Files\MySQL\MySQL Server 5.5\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libmysql.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -154,8 +162,19 @@
     <ClCompile Include="Base\ThreadManager\MyThread.cpp" />
     <ClCompile Include="Base\ThreadManager\Task.cpp" />
     <ClCompile Include="Base\ThreadManager\ThreadManager.cpp" />
+    <ClCompile Include="DatebaseManager\DatabaseConnect.cpp" />
+    <ClCompile Include="DatebaseManager\DatabaseManager.cpp" />
+    <ClCompile Include="FileManager\FileUtils.cpp" />
+    <ClCompile Include="FileManager\TinyXML\tinystr.cpp" />
+    <ClCompile Include="FileManager\TinyXML\tinyxml.cpp" />
+    <ClCompile Include="FileManager\TinyXML\tinyxmlerror.cpp" />
+    <ClCompile Include="FileManager\TinyXML\tinyxmlparser.cpp" />
+    <ClCompile Include="GameManager\GameHall.cpp" />
+    <ClCompile Include="GameManager\GameManager.cpp" />
+    <ClCompile Include="GameManager\GameRoom.cpp" />
+    <ClCompile Include="GameManager\Player.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="MessageManager\MessageManager.cpp" />
+    <ClCompile Include="MessageManager\MessageParser.cpp" />
     <ClCompile Include="ServerManager\ClientConnect.cpp" />
     <ClCompile Include="ServerManager\Connect.cpp" />
     <ClCompile Include="ServerManager\ListenerConnect.cpp" />
@@ -169,8 +188,17 @@
     <ClInclude Include="Base\ThreadManager\MyThread.h" />
     <ClInclude Include="Base\ThreadManager\Task.h" />
     <ClInclude Include="Base\ThreadManager\ThreadManager.h" />
-    <ClInclude Include="MessageConstant.h" />
-    <ClInclude Include="MessageManager\MessageManager.h" />
+    <ClInclude Include="DatebaseManager\DatabaseConnect.h" />
+    <ClInclude Include="DatebaseManager\DatabaseManager.h" />
+    <ClInclude Include="FileManager\FileUtils.h" />
+    <ClInclude Include="FileManager\TinyXML\tinystr.h" />
+    <ClInclude Include="FileManager\TinyXML\tinyxml.h" />
+    <ClInclude Include="GameManager\GameHall.h" />
+    <ClInclude Include="GameManager\GameManager.h" />
+    <ClInclude Include="GameManager\GameRoom.h" />
+    <ClInclude Include="GameManager\Player.h" />
+    <ClInclude Include="MessageManager\MessageConstant.h" />
+    <ClInclude Include="MessageManager\MessageParser.h" />
     <ClInclude Include="Protoc\Rapidjson\allocators.h" />
     <ClInclude Include="Protoc\Rapidjson\document.h" />
     <ClInclude Include="Protoc\Rapidjson\encodedstream.h" />

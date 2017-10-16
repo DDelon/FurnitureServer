@@ -1,13 +1,18 @@
+
+#define FD_SETSIZE 2048
+
 #include <iostream>
 #include "EventDispatcher.h"
 #include "CCValue.h"
 #include "ThreadManager.h"
 #pragma comment(lib,"ws2_32.lib")
 #include "ServerManager.h"
-
+//#include <mysql.h>
 #include "rapidjson/document.h"
 #include "rapidjson/prettywriter.h"
 #include "rapidjson/stringbuffer.h"
+#include "DatebaseManager/DatabaseManager.h"
+#include "FileManager/FileUtils.h"
 
 using namespace rapidjson;
 
@@ -79,8 +84,9 @@ int main()
 	decode(sContent, "1sfesgdgd");*/
 
 	//ServerManager::getInstance()->start();
+	::Value val = FileUtils::getInstance()->getValueMapFromXML("1.xml");
 
-	Document doc;
+	/*Document doc;
 	Document::AllocatorType &alloc = doc.GetAllocator();
 	rapidjson::Value root(kObjectType);
 	rapidjson::Value name(kStringType);
@@ -97,7 +103,29 @@ int main()
 	Writer<StringBuffer> writer(buffer);
 	root.Accept(writer);
 	std::string str = buffer.GetString();
-	std::cout << str << std::endl;
+	std::cout << str << std::endl;*/
+
+
+	/*const char user[] = "root";
+	const char password[] = "wxs11qzadsl";
+	const char host[] = "192.168.1.7";
+	const char database[] = "test";
+	unsigned int port = 3306;
+
+	DatabaseManager::getInstance()->createConnect(user, password, host, database, port);
+	::Value result = DatabaseManager::getInstance()->query(database, "select * from user;");
+	std::cout << "query end" << std::endl;
+	if (result.isNull())
+		return 0;
+	for (auto map : result.asValueVector())
+	{
+		for (auto iter : map.asValueMap())
+		{
+			std::cout << "key:" << iter.first << " value:" << iter.second.asString() << std::endl;
+		}
+	}*/
+	
+
 
 
 	return 0;

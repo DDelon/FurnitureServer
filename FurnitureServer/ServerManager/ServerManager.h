@@ -7,6 +7,8 @@
 #include <WinSock2.h>
 #include <map>
 
+
+
 class ListenerConnect;
 
 class ClientConnect;
@@ -42,6 +44,8 @@ private:
 	void recvMessageLoop(MyThread *pThread);
 
 	void sendMessageLoop(MyThread *pThread);
+
+	void removeSocketLoop(MyThread *pThread);
 
 private:
 	static ServerManager *_pInstance;

@@ -38,6 +38,15 @@
     <Filter Include="src\Protoc\Rapidjson\msinttypes">
       <UniqueIdentifier>{f56429ff-d47c-49a5-ae22-08db0fb65e4d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\GameManager">
+      <UniqueIdentifier>{e2dae632-cda5-4a73-bc9b-ed4197426660}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\DatabaseManager">
+      <UniqueIdentifier>{4673fb4d-95d9-4105-a4ca-5c347b54a4bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\FileManager">
+      <UniqueIdentifier>{2a5b1a90-3772-47e9-b771-69400fb81387}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -79,8 +88,29 @@
     <ClCompile Include="ServerManager\ListenerConnect.cpp">
       <Filter>src\ServerManager</Filter>
     </ClCompile>
-    <ClCompile Include="MessageManager\MessageManager.cpp">
+    <ClCompile Include="MessageManager\MessageParser.cpp">
       <Filter>src\MessageManager</Filter>
+    </ClCompile>
+    <ClCompile Include="GameManager\GameHall.cpp">
+      <Filter>src\GameManager</Filter>
+    </ClCompile>
+    <ClCompile Include="GameManager\GameManager.cpp">
+      <Filter>src\GameManager</Filter>
+    </ClCompile>
+    <ClCompile Include="GameManager\GameRoom.cpp">
+      <Filter>src\GameManager</Filter>
+    </ClCompile>
+    <ClCompile Include="GameManager\Player.cpp">
+      <Filter>src\GameManager</Filter>
+    </ClCompile>
+    <ClCompile Include="DatebaseManager\DatabaseConnect.cpp">
+      <Filter>src\DatabaseManager</Filter>
+    </ClCompile>
+    <ClCompile Include="DatebaseManager\DatabaseManager.cpp">
+      <Filter>src\DatabaseManager</Filter>
+    </ClCompile>
+    <ClCompile Include="FileManager\FileManager.cpp">
+      <Filter>src\FileManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -116,12 +146,6 @@
     </ClInclude>
     <ClInclude Include="ServerManager\ListenerConnect.h">
       <Filter>src\ServerManager</Filter>
-    </ClInclude>
-    <ClInclude Include="MessageManager\MessageManager.h">
-      <Filter>src\MessageManager</Filter>
-    </ClInclude>
-    <ClInclude Include="MessageConstant.h">
-      <Filter>src\MessageManager</Filter>
     </ClInclude>
     <ClInclude Include="Protoc\Rapidjson\allocators.h">
       <Filter>src\Protoc\Rapidjson</Filter>
@@ -227,6 +251,33 @@
     </ClInclude>
     <ClInclude Include="Protoc\Rapidjson\msinttypes\stdint.h">
       <Filter>src\Protoc\Rapidjson\msinttypes</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageManager\MessageConstant.h">
+      <Filter>src\MessageManager</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageManager\MessageParser.h">
+      <Filter>src\MessageManager</Filter>
+    </ClInclude>
+    <ClInclude Include="GameManager\GameHall.h">
+      <Filter>src\GameManager</Filter>
+    </ClInclude>
+    <ClInclude Include="GameManager\GameManager.h">
+      <Filter>src\GameManager</Filter>
+    </ClInclude>
+    <ClInclude Include="GameManager\GameRoom.h">
+      <Filter>src\GameManager</Filter>
+    </ClInclude>
+    <ClInclude Include="GameManager\Player.h">
+      <Filter>src\GameManager</Filter>
+    </ClInclude>
+    <ClInclude Include="DatebaseManager\DatabaseConnect.h">
+      <Filter>src\DatabaseManager</Filter>
+    </ClInclude>
+    <ClInclude Include="DatebaseManager\DatabaseManager.h">
+      <Filter>src\DatabaseManager</Filter>
+    </ClInclude>
+    <ClInclude Include="FileManager\FileManager.h">
+      <Filter>src\FileManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
